@@ -1,0 +1,47 @@
+<h1>Guessing Game</h1>
+<script type="text/javascript">
+// This is a guessing game. App generates a random number between 1 + 6. User has two chances to guess it
+
+	/*start off with a variable fale and will make it true if/when they guess the correct number.
+	Used to have one piece of code writen at the end to show the output (right/wrong)*/
+	var correctGuess = false;
+	var randomNumber = Math.floor( Math.random() * 6 ) +1;
+	console.log("randomNumber: " + randomNumber) //used for testing purposes. Take out later
+
+	var guess = parseInt(prompt("I'm thinking of a number between 1 and 6.\nWhat is it?")); 
+	//parseInt is making the sting into a number so I can === it in the if else statements
+	console.log("guess: " + guess);
+
+	/*
+	three options here:
+	1) If number is correct first time correctGuess is true.
+	2) If the number higer or lower. Give them another try.
+	3) after two tries correctGuess will either be true or false.
+	*/
+	if (guess === randomNumber) {
+		correctGuess = true;
+	} else if (guess < randomNumber) {
+		var secondGuess = parseInt(prompt("Nope. My number is higher. Try again."));
+		console.log("secondGuess " + secondGuess)
+		if (secondGuess === randomNumber) {
+			correctGuess = true;
+		}
+	} else if (guess > randomNumber) {
+		var secondGuess = parseInt(prompt("Nope. My number is lower. Try again."));
+		console.log("secondGuess " + secondGuess);
+		if (secondGuess === randomNumber) {
+			correctGuess = true;
+		}
+	}
+
+	//add this image to the page is correctGuess is true:
+		//http://www.reactiongifs.us/wp-content/uploads/2014/04/correct_chris_farley_billy_madison.gif"
+	
+	//for the message after the guessing
+	if (correctGuess) {
+		document.write("That is correct!")
+		//This is where that image would go.
+	} else {
+		alert("Wrong!")
+	}
+</script>
